@@ -3,6 +3,15 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoose = require('mongoose');
+
+require('dotenv').config();
+
+// connect to MongoDB using Mongoose
+const mongoURI = process.env.MONGO_URI;
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Connected to MongoDB"))
+  .catch(err => console.error("Failed to connect to MongoDB with the following error:", err));
 
 const indexRouter = require('./routes/index');
 // const usersRouter = require('./routes/users');
