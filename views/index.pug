@@ -8,4 +8,6 @@ block content
     .message
       h2= message.user
       p= message.text
-      time= message.date
+      time= message.added
+  
+  a(href="/new") Post a new message
